@@ -181,10 +181,10 @@ def sequence_sum(begin, end, step):
         return 0
     return sum(range(begin, end + 1, step))
 
-print(sequence_sum(2, 2, 2))   # 2
-print(sequence_sum(2, 6, 2))   # 12
-print(sequence_sum(1, 5, 1))   # 15
-print(sequence_sum(1, 5, 3))   # 5
+print(sequence_sum(2, 2, 2))   
+print(sequence_sum(2, 6, 2))   
+print(sequence_sum(1, 5, 1))   
+print(sequence_sum(1, 5, 3))   
 
 #difference between largest and smallest
 def max_diff(lst):
@@ -192,9 +192,9 @@ def max_diff(lst):
         return 0
     return max(lst) - min(lst)
 
-print(max_diff([1, 2, 3, 4]))    # 3
-print(max_diff([1, 2, 3, -4]))   # 7
-print(max_diff([]))               # 0
+print(max_diff([1, 2, 3, 4]))   
+print(max_diff([1, 2, 3, -4]))  
+print(max_diff([]))              
 
 #count smileys
 import re
@@ -204,15 +204,15 @@ def count_smileys(arr):
         return 0
     return len([face for face in arr if re.match(r'^[:;][-~]?[)D]$', face)])
 
-print(count_smileys([':)', ';(', ';}', ':-D']))        # 2
-print(count_smileys([';D', ':-(', ':-)', ';~)']))       # 3
-print(count_smileys([';]', ':[', ';*', ':$', ';-D']))   # 1
+print(count_smileys([':)', ';(', ';}', ':-D']))       
+print(count_smileys([';D', ':-(', ':-)', ';~)']))      
+print(count_smileys([';]', ':[', ';*', ':$', ';-D']))  
 
 #count sentences in paragraph
 def count_sentences(paragraph):
     return paragraph.count('.') + paragraph.count('?') + paragraph.count('!')
 
-print(count_sentences("Hello. How are you? I'm fine!"))  # 3
+print(count_sentences("Hello. How are you? I'm fine!")) 
 
 #tortoise race
 def race(v1, v2, g):
@@ -224,8 +224,8 @@ def race(v1, v2, g):
     seconds = total_seconds % 60
     return [hours, minutes, seconds]
 
-print(race(720, 850, 70))  # [0, 32, 18]
-print(race(80, 91, 37))    # [3, 21, 49]
+print(race(720, 850, 70))  
+print(race(80, 91, 37))    
 
 #shifted string rotation
 def shifted_diff(first, second):
@@ -238,9 +238,9 @@ def shifted_diff(first, second):
         return doubled.index(second)
     return -1
 
-print(shifted_diff("coffee", "eecoff"))   # 2
-print(shifted_diff("eecoff", "coffee"))   # 4
-print(shifted_diff("moose", "Moose"))     # -1
-print(shifted_diff("isn't", "'tisn"))      # 2
-print(shifted_diff("Esham", "Esham"))      # 0
-print(shifted_diff("dog", "god"))          # -1
+print(shifted_diff("coffee", "eecoff"))  
+print(shifted_diff("eecoff", "coffee"))  
+print(shifted_diff("moose", "Moose"))   
+print(shifted_diff("isn't", "'tisn"))    
+print(shifted_diff("Esham", "Esham"))     
+print(shifted_diff("dog", "god"))         
