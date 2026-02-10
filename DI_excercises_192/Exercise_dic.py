@@ -1,20 +1,23 @@
-my_list=[("name","Elie"),("job", "Instructor")]
-result = dict(my_list)
-print(result)
+# Exercise 1: List of tuples to dictionary (comprehension)
+my_list = [("name", "Elie"), ("job", "Instructor")]
+person_dict = {key: value for key, value in my_list}
+print(person_dict)
 
+# Exercise 2: Two lists to dictionary (comprehension)
 states_ab = ["Ca", "NY", "RI"]
 states_names = ["California", "New York", "Rhode Island"]
-zipmethod = zip(states_ab, states_names)
-print(dict(zipmethod))
+states_dict = {key: value for key, value in zip(states_ab, states_names)}
+print(states_dict)
 
-vowels = ["a","e","i","o","u"]
-values0 = [0,0,0,0,0]
-result2 = {x: 0 for x in vowels}
-print(result2)
+# Exercise 3: Vowels with value 0
+vowel_map = {x: 0 for x in "aeiou"}
+print(vowel_map)
 
-result3 = {x : chr(x+64)for x in range(1,27)}
-print(result3)
+# Exercise 4: Alphabet dictionary
+alphabet_dict = {x: chr(x + 64) for x in range(1, 27)}
+print(alphabet_dict)
 
+# Exercise 5: Count vowels only
 string = "awesome sauce"
-result4 = {x: string.count(x) for x in string}
-print(result4)
+vowel_count = {x: string.count(x) for x in "aeiou"}
+print(vowel_count)
