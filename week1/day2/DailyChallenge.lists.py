@@ -16,6 +16,7 @@ while i <= length:
     i += 1
 print(result_2)    
 
+#challenge2
 user_input = input("Enter a string: ")
 result_3 = user_input[0]
 for i in range(1, len((user_input))):
