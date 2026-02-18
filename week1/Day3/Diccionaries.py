@@ -62,3 +62,6 @@ print(dict2)
 
 dict3= {i : user for i,user in enumerate(users)}
 print(dict3)
+
+dict4 = {user: i for i, user in enumerate(sorted(users))}
+print(dict4)
