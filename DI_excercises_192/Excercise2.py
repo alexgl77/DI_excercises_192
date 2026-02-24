@@ -1,4 +1,5 @@
 #Excercise 2 
+
 def calculate_years(human_years):
     if human_years == 1:
         cat_years = 15
