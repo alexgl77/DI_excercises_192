@@ -42,15 +42,6 @@ print(Cat.is_lazy)
 print(Dog.is_lazy)
 
 
-#Ex2
 
-class Dog:
-    def __init__(self, name, height):
-        self.name = name
-        self.height = height
-    def bark(self):
-        return f"{self.name} goes woof!"
-    def jump(self):
-        return f"{self.name} jumps {self.height * 2} cm high!"
 
-    
+
