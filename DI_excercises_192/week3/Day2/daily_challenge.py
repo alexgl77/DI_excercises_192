@@ -4,20 +4,16 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler, LabelEncoder
 from sklearn.decomposition import PCA
 import warnings
+import os
 warnings.filterwarnings('ignore')
 
-# ─── Load Dataset ──────────────────────────────────────────────────────────────
-# Data Science Job Salaries dataset (Kaggle - public mirror)
-url = "https://raw.githubusercontent.com/dsrscientist/dataset1/master/ds_salaries.csv"
+# Save plots in the same folder as this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-try:
-    df = pd.read_csv(url)
-    print("Dataset loaded from URL.")
-except Exception:
-    print("Could not load from URL.")
-    print("Download manually from Kaggle: 'Data Science Job Salaries'")
-    print("Then run: df = pd.read_csv('ds_salaries.csv')")
-    raise SystemExit
+# ─── Load Dataset ──────────────────────────────────────────────────────────────
+path = r"C:\Users\alexg\Downloads\ds_salary_dataset\Data Science Job Salary dataset\datascience_salaries.csv"
+df = pd.read_csv(path, index_col=0)
+print("Dataset loaded.")
 
 print(f"Shape: {df.shape}")
 print(f"Columns: {list(df.columns)}")
@@ -27,7 +23,7 @@ print(df.head())
 print("\n=== Task 1: Min-Max Normalization ===")
 
 # Use salary_in_usd for consistent comparison (salary column uses mixed currencies)
-salary_col = 'salary_in_usd' if 'salary_in_usd' in df.columns else 'salary'
+salary_col = 'salary'
 
 print(f"Using column: '{salary_col}'")
 print(f"Before normalization:")
@@ -56,7 +52,7 @@ axes[1].set_title('Salary - After Min-Max Normalization')
 axes[1].set_xlabel('Normalized Value [0, 1]')
 
 plt.tight_layout()
-plt.savefig('salary_normalization.png')
+plt.savefig(os.path.join(SCRIPT_DIR, 'salary_normalization.png'))
 plt.close()
 print("Saved: salary_normalization.png")
 
@@ -115,7 +111,7 @@ handles = [plt.Line2D([0],[0], marker='o', color='w',
 plt.legend(handles=handles, title='Experience Level')
 
 plt.tight_layout()
-plt.savefig('pca_result.png')
+plt.savefig(os.path.join(SCRIPT_DIR, 'pca_result.png'))
 plt.close()
 print("Saved: pca_result.png")
 
@@ -165,7 +161,7 @@ for bar in bars2:
             f'${bar.get_height():,.0f}', ha='center', va='bottom', fontsize=8)
 
 plt.tight_layout()
-plt.savefig('salary_by_experience.png')
+plt.savefig(os.path.join(SCRIPT_DIR, 'salary_by_experience.png'))
 plt.close()
 print("Saved: salary_by_experience.png")
 
