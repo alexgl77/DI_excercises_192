@@ -233,6 +233,26 @@ cells = [
     ),
 
     md(
+        "## 5b. Patch stdio for Colab (fixes `UnsupportedOperation: fileno`)",
+        "",
+        "Colab's Jupyter kernel wraps `sys.stdin` and `sys.stderr` in objects that",
+        "do not expose a real file descriptor. When the MCP client spawns the",
+        "filesystem/git/workspace_ops subprocesses, the subprocess module calls",
+        "`fileno()` on the inherited streams and crashes. Replacing them with",
+        "real fd-backed files fixes it without affecting normal `print()` output.",
+    ),
+    code(
+        "import sys, os",
+        "",
+        "# MCP stdio servers inherit stdin/stderr from the parent process, but",
+        "# Jupyter wraps them in objects without a real fileno(). Replace with",
+        "# real file descriptors so the subprocesses can attach to them.",
+        "sys.stdin = open(os.devnull, 'r')",
+        "sys.stderr = os.fdopen(os.dup(2), 'w', buffering=1)",
+        "print('stdio patched for MCP subprocess support')",
+    ),
+
+    md(
         "## 6. Connect to the three MCP servers",
         "",
         "We register all three servers with `MultiServerMCPClient` and load their tools.",
