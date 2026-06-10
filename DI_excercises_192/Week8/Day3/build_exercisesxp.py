@@ -25,7 +25,7 @@ def code(*lines):
 
 cells = [
     md(
-        "# Daily Challenge — RAG with LangChain (Local, No API Keys)",
+        "# XP Exercises — RAG with LangChain (Local, No API Keys)",
         "",
         "**Course:** Developers Institute  **Week 8 - Day 3**  ",
         "**Author:** Alex Goldbaum",
@@ -313,7 +313,7 @@ nb = {
     "nbformat_minor": 0,
 }
 
-out_path = os.path.join(os.path.dirname(__file__), "dailychallenge.ipynb")
+out_path = os.path.join(os.path.dirname(__file__), "exercisesxp.ipynb")
 with open(out_path, "w", encoding="utf-8") as f:
     json.dump(nb, f, indent=1, ensure_ascii=False)
 
